@@ -1,9 +1,9 @@
 package resource
 
 const valhallaDataPath = "/data"
-const workerImage = "itayankri/valhalla-worker:latest"
-const mapBuilderImage = "itayankri/valhalla-builder:latest"
-const hirtoricalTrafficDataFetcherImage = "itayankri/valhalla-predicted-traffic:latest"
+const workerImage = "pandaritrl/valhalla-worker:latest"
+const mapBuilderImage = "pandaritrl/valhalla-builder:latest"
+const hirtoricalTrafficDataFetcherImage = "pandaritrl/valhalla-predicted-traffic:latest"
 
 const DeploymentSuffix = ""
 const HorizontalPodAutoscalerSuffix = ""
