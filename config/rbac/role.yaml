@@ -2,7 +2,6 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  creationTimestamp: null
   name: manager-role
 rules:
 - apiGroups:
@@ -111,7 +110,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - valhalla.itayankri
+  - valhalla.pandaritrl
   resources:
   - valhallas
   verbs:
@@ -123,13 +122,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - valhalla.itayankri
+  - valhalla.pandaritrl
   resources:
   - valhallas/finalizers
   verbs:
   - update
 - apiGroups:
-  - valhalla.itayankri
+  - valhalla.pandaritrl
   resources:
   - valhallas/status
   verbs:

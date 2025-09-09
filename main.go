@@ -30,8 +30,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	valhallav1alpha1 "github.com/itayankri/valhalla-operator/api/v1alpha1"
-	"github.com/itayankri/valhalla-operator/controllers"
+	valhallav1alpha1 "github.com/pandaritrl/valhalla-operator/api/v1alpha1"
+	"github.com/pandaritrl/valhalla-operator/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -66,11 +66,9 @@ func main() {
 
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 		Scheme:                 scheme,
-		MetricsBindAddress:     metricsAddr,
-		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "6593e2bd.itayankri",
+		LeaderElectionID:       "6593e2bd.pandaritrl",
 	})
 	if err != nil {
 		setupLog.Error(err, "unable to start manager")

@@ -23,8 +23,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/itayankri/valhalla-operator/internal/resource"
-	"github.com/itayankri/valhalla-operator/internal/status"
+	"github.com/pandaritrl/valhalla-operator/internal/resource"
+	"github.com/pandaritrl/valhalla-operator/internal/status"
 	appsv1 "k8s.io/api/apps/v1"
 	autoscalingv1 "k8s.io/api/autoscaling/v1"
 	batchv1 "k8s.io/api/batch/v1"
@@ -40,10 +40,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 
 	"github.com/go-logr/logr"
-	valhallav1alpha1 "github.com/itayankri/valhalla-operator/api/v1alpha1"
+	valhallav1alpha1 "github.com/pandaritrl/valhalla-operator/api/v1alpha1"
 )
 
-const finalizerName = "valhalla.itayankri/finalizer"
+const finalizerName = "valhalla.pandaritrl/finalizer"
 
 // ValhallaReconciler reconciles a Valhalla object
 type ValhallaReconciler struct {
@@ -60,7 +60,7 @@ func NewValhallaReconciler(client client.Client, scheme *runtime.Scheme) *Valhal
 	}
 }
 
-// +kubebuilder:rbac:groups=valhalla.itayankri,resources=valhallas,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=valhalla.pandaritrl,resources=valhallas,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups="",resources=pods/exec,verbs=create
 // +kubebuilder:rbac:groups="",resources=pods,verbs=update;get;list;watch
 // +kubebuilder:rbac:groups="",resources=services,verbs=get;list;watch;create;update
@@ -69,9 +69,9 @@ func NewValhallaReconciler(client client.Client, scheme *runtime.Scheme) *Valhal
 // +kubebuilder:rbac:groups="apps",resources=deployments,verbs=get;list;watch;create;update
 // +kubebuilder:rbac:groups="autoscaling",resources=horizontalpodautoscalers,verbs=get;list;watch;create;update
 // +kubebuilder:rbac:groups="policy",resources=poddisruptionbudgets,verbs=get;list;watch;create;update
-// +kubebuilder:rbac:groups=valhalla.itayankri,resources=valhallas,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=valhalla.itayankri,resources=valhallas/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=valhalla.itayankri,resources=valhallas/finalizers,verbs=update
+// +kubebuilder:rbac:groups=valhalla.pandaritrl,resources=valhallas,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=valhalla.pandaritrl,resources=valhallas/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=valhalla.pandaritrl,resources=valhallas/finalizers,verbs=update
 // +kubebuilder:rbac:groups="",resources=persistentvolumeclaims,verbs=get;list;watch;create;update
 // +kubebuilder:rbac:groups="rbac.authorization.k8s.io",resources=roles,verbs=get;list;watch;create;update
 // +kubebuilder:rbac:groups="rbac.authorization.k8s.io",resources=rolebindings,verbs=get;list;watch;create;update

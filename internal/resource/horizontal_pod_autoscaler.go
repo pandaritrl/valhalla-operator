@@ -3,7 +3,7 @@ package resource
 import (
 	"fmt"
 
-	"github.com/itayankri/valhalla-operator/internal/status"
+	"github.com/pandaritrl/valhalla-operator/internal/status"
 	autoscalingv1 "k8s.io/api/autoscaling/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"

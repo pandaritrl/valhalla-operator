@@ -3,7 +3,7 @@ package resource
 import (
 	"fmt"
 
-	"github.com/itayankri/valhalla-operator/internal/status"
+	"github.com/pandaritrl/valhalla-operator/internal/status"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -50,7 +50,7 @@ func (builder *DeploymentBuilder) Update(object client.Object) error {
 				Containers: []corev1.Container{
 					{
 						Name:  name,
-						Image: workerImage,
+						Image: builder.Instance.Spec.GetImage(),
 						Ports: []corev1.ContainerPort{
 							{
 								ContainerPort: containerPort,

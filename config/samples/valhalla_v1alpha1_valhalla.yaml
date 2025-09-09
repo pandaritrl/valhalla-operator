@@ -1,4 +1,4 @@
-apiVersion: valhalla.itayankri/v1alpha1
+apiVersion: valhalla.pandaritrl/v1alpha1
 kind: Valhalla
 metadata:
   name: valhalla-sample

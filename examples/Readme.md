@@ -43,7 +43,7 @@ kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nf
 Just run the following command to install the operator, including the valhalla CRD and all the relevant resources.
 
 ```bash
-kubectl apply -f https://github.com/itayankri/valhalla-operator/releases/latest/download/valhalla-operator.yaml
+kubectl apply -f https://github.com/pandaritrl/valhalla-operator/releases/latest/download/valhalla-operator.yaml
 ```
 
 ### Creating a new Valhalla Instance

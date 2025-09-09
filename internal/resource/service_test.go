@@ -1,9 +1,9 @@
 package resource_test
 
 import (
-	"github.com/itayankri/valhalla-operator/internal/resource"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"github.com/pandaritrl/valhalla-operator/internal/resource"
 )
 
 var _ = Describe("Service builder", func() {

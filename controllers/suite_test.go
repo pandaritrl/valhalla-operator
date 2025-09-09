@@ -29,11 +29,10 @@ import (
 	"k8s.io/client-go/util/retry"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/envtest"
-	"sigs.k8s.io/controller-runtime/pkg/envtest/printer"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	valhallav1alpha1 "github.com/itayankri/valhalla-operator/api/v1alpha1"
+	valhallav1alpha1 "github.com/pandaritrl/valhalla-operator/api/v1alpha1"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -58,9 +57,7 @@ var updateWithRetry = func(v *valhallav1alpha1.Valhalla, callback func(v *valhal
 func TestAPIs(t *testing.T) {
 	RegisterFailHandler(Fail)
 
-	RunSpecsWithDefaultAndCustomReporters(t,
-		"Controller Suite",
-		[]Reporter{printer.NewlineReporter{}})
+	RunSpecs(t, "Controller Suite")
 }
 
 var _ = BeforeSuite(func() {

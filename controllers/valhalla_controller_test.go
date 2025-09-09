@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	valhallav1alpha1 "github.com/itayankri/valhalla-operator/api/v1alpha1"
-	"github.com/itayankri/valhalla-operator/internal/status"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	valhallav1alpha1 "github.com/pandaritrl/valhalla-operator/api/v1alpha1"
+	"github.com/pandaritrl/valhalla-operator/internal/status"
 	appsv1 "k8s.io/api/apps/v1"
 	autoscalingv1 "k8s.io/api/autoscaling/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -199,7 +199,7 @@ var _ = Describe("ValhallaController", func() {
 			minReplicas := int32(2)
 			originalMinReplicas := *instance.Spec.MinReplicas
 			Expect(updateWithRetry(instance, func(v *valhallav1alpha1.Valhalla) {
-				v.SetAnnotations(map[string]string{"valhalla.itayankri/operator.paused": "true"})
+				v.SetAnnotations(map[string]string{"valhalla.pandaritrl/operator.paused": "true"})
 				v.Spec.MinReplicas = &minReplicas
 			})).To(Succeed())
 
@@ -208,7 +208,7 @@ var _ = Describe("ValhallaController", func() {
 			}, MapBuildingTimeout).Should(Equal(originalMinReplicas))
 
 			Expect(updateWithRetry(instance, func(v *valhallav1alpha1.Valhalla) {
-				v.SetAnnotations(map[string]string{"valhalla.itayankri/operator.paused": "false"})
+				v.SetAnnotations(map[string]string{"valhalla.pandaritrl/operator.paused": "false"})
 			})).To(Succeed())
 
 			Eventually(func() int32 {
@@ -220,7 +220,7 @@ var _ = Describe("ValhallaController", func() {
 
 func generateValhallaCluster(name string) *valhallav1alpha1.Valhalla {
 	storage := resource.MustParse("10Mi")
-	image := "itayankri/valhalla:latest"
+	image := "pandaritrl/valhalla:latest"
 	minReplicas := int32(1)
 	maxReplicas := int32(3)
 	valhalla := &valhallav1alpha1.Valhalla{

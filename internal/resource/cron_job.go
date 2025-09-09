@@ -3,7 +3,7 @@ package resource
 import (
 	"fmt"
 
-	"github.com/itayankri/valhalla-operator/internal/status"
+	"github.com/pandaritrl/valhalla-operator/internal/status"
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"

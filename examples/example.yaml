@@ -1,9 +1,11 @@
-apiVersion: valhalla.itayankri/v1alpha1
+apiVersion: valhalla.pandaritrl/v1alpha1
 kind: Valhalla
 metadata:
   name: example
 spec:
   pbfUrl: https://download.geofabrik.de/australia-oceania/marshall-islands-latest.osm.pbf
+  image: pandaritrl/valhalla-worker:latest
+  builderImage: pandaritrl/valhalla-builder:latest
   minReplicas: 2
   maxReplicas: 5
   resources:

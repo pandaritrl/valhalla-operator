@@ -1,19 +1,19 @@
-domain: itayankri
+domain: pandaritrl
 layout:
 - go.kubebuilder.io/v3
 plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
 projectName: valhalla-operator
-repo: github.com/itayankri/valhalla-operator
+repo: github.com/pandaritrl/valhalla-operator
 resources:
 - api:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: itayankri
+  domain: pandaritrl
   group: valhalla
   kind: Valhalla
-  path: github.com/itayankri/valhalla-operator/api/v1alpha1
+  path: github.com/pandaritrl/valhalla-operator/api/v1alpha1
   version: v1alpha1
 version: "3"

@@ -28,8 +28,8 @@ BUNDLE_METADATA_OPTS ?= $(BUNDLE_CHANNELS) $(BUNDLE_DEFAULT_CHANNEL)
 # This variable is used to construct full image tags for bundle and catalog images.
 #
 # For example, running 'make bundle-build bundle-push catalog-build catalog-push' will build and push both
-# itayankri/valhalla-bundle:$VERSION and itayankri/valhalla-catalog:$VERSION.
-IMAGE_TAG_BASE ?= itayankri/valhalla-operator
+# pandaritrl/valhalla-bundle:$VERSION and pandaritrl/valhalla-catalog:$VERSION.
+IMAGE_TAG_BASE ?= pandaritrl/valhalla-operator
 
 # BUNDLE_IMG defines the image:tag used for the bundle.
 # You can use it as an arg. (E.g make bundle-build BUNDLE_IMG=<some-registry>/<project-name-bundle>:<tag>)
@@ -40,7 +40,7 @@ TEST_IMG ?= $(IMAGE_TAG_BASE):$(shell git rev-parse --short HEAD)
 
 # Image URL to use all building/pushing image targets
 ifeq ($(ENV), production)
-IMG ?= itayankri/valhalla-operator:latest
+IMG ?= pandaritrl/valhalla-operator:latest
 else
 IMG ?= $(TEST_IMG)
 endif
@@ -150,7 +150,7 @@ undeploy: ## Undeploy controller from the K8s cluster specified in ~/.kube/confi
 CONTROLLER_GEN = $(shell pwd)/bin/controller-gen
 .PHONY: controller-gen
 controller-gen: ## Download controller-gen locally if necessary.
-	$(call go-get-tool,$(CONTROLLER_GEN),sigs.k8s.io/controller-tools/cmd/controller-gen@v0.10.0)
+	$(call go-get-tool,$(CONTROLLER_GEN),sigs.k8s.io/controller-tools/cmd/controller-gen@v0.15.0)
 
 KUSTOMIZE = $(shell pwd)/bin/kustomize
 .PHONY: kustomize

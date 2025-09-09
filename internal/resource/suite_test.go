@@ -3,10 +3,10 @@ package resource_test
 import (
 	"testing"
 
-	valhallav1alpha1 "github.com/itayankri/valhalla-operator/api/v1alpha1"
-	"github.com/itayankri/valhalla-operator/internal/resource"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	valhallav1alpha1 "github.com/pandaritrl/valhalla-operator/api/v1alpha1"
+	"github.com/pandaritrl/valhalla-operator/internal/resource"
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"

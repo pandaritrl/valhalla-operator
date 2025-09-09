@@ -19,7 +19,7 @@ package v1alpha1
 import (
 	"strings"
 
-	"github.com/itayankri/valhalla-operator/internal/status"
+	"github.com/pandaritrl/valhalla-operator/internal/status"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -27,7 +27,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 )
 
-const OperatorPausedAnnotation = "valhalla.itayankri/operator.paused"
+const OperatorPausedAnnotation = "valhalla.pandaritrl/operator.paused"
 
 // Phase is the current phase of the deployment
 type Phase string
@@ -64,6 +64,7 @@ type ValhallaSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 	PBFURL           string                       `json:"pbfUrl,omitempty"`
 	Image            *string                      `json:"image,omitempty"`
+	BuilderImage     *string                      `json:"builderImage,omitempty"`
 	Persistence      PersistenceSpec              `json:"persistence,omitempty"`
 	Service          *ServiceSpec                 `json:"service,omitempty"`
 	MinReplicas      *int32                       `json:"minReplicas,omitempty"`
@@ -99,6 +100,20 @@ func (spec *ValhallaSpec) GetMinAvailable() *intstr.IntOrString {
 func (spec *ValhallaSpec) GetPbfFileName() string {
 	split := strings.Split(spec.PBFURL, "/")
 	return split[len(split)-1]
+}
+
+func (spec *ValhallaSpec) GetBuilderImage() string {
+	if spec.BuilderImage != nil {
+		return *spec.BuilderImage
+	}
+	return "pandaritrl/valhalla-builder:latest" // default fallback
+}
+
+func (spec *ValhallaSpec) GetImage() string {
+	if spec.Image != nil {
+		return *spec.Image
+	}
+	return "pandaritrl/valhalla-worker:latest" // default fallback
 }
 
 type PersistenceSpec struct {

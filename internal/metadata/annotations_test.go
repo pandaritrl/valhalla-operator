@@ -1,9 +1,9 @@
 package metadata_test
 
 import (
-	"github.com/itayankri/valhalla-operator/internal/metadata"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"github.com/pandaritrl/valhalla-operator/internal/metadata"
 )
 
 const defaultAnnotationKey = "before"
